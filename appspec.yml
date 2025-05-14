@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/nextwork-web-project.war            # from inside the zip file
+    destination: /usr/share/tomcat/webapps/  # where to place it on EC2
+    overwrite: true
+
+hooks:                       # lifecycle scripts
+  BeforeInstall:
+    - location: scripts/install.sh
+      timeout : 300
+      runas: root
+
+  Applicationstart:
+    - location: scripts/startserver.sh
+      timeout : 300
+      runas: root
+
+  ApplicationStop:
+    - location: scripts/stopserver.sh
+      timeout : 300
+      runas: root
