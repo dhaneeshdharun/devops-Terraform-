@@ -11,7 +11,7 @@ hooks:                       # lifecycle scripts
       timeout : 300
       runas: root
 
-  Applicationstart:
+  ApplicationStart:
     - location: scripts/startserver.sh
       timeout : 300
       runas: root
