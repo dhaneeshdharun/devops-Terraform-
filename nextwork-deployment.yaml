@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextwork-web-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nextwork-web
+  template:
+    metadata:
+      labels:
+        app: nextwork-web
+    spec:
+      containers:
+      - name: nextwork-web
+        image: dhaneeshdharun/dharun:latest
+        ports:
+        - containerPort: 8080
